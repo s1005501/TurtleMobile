@@ -1,0 +1,509 @@
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  src: url(./../Noto_Sans_TC/NotoSansTC-Medium.otf);
+  font-family: Noto Sans CJK TC;
+}
+
+#root {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+/* header的css */
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0 124px;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar div {
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.navbar img {
+  width: 95px;
+  height: 95px;
+}
+.navbarText p {
+  color: #677510;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: Noto Sans CJK TC;
+}
+.navbarText p:hover {
+  color: #b5cc22;
+}
+.UbikeLogo {
+  width: 95px;
+  height: 95px;
+}
+
+.loginButton button {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: Noto Sans CJK TC;
+  letter-spacing: 0.1px;
+  color: white;
+  background-color: #b5cc22;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.hamburger,
+.cancel {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* main的css */
+main {
+  padding: 32px 124px;
+}
+main h2 {
+  color: #b5cc22;
+  font-family: Noto Sans CJK TC;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.18rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.searchArea {
+  display: flex;
+}
+.searchAreaFirstDiv {
+  margin-right: 100px;
+}
+.searchInput {
+  display: flex;
+  margin-bottom: 32px;
+  position: relative;
+}
+.selectCounty {
+  position: relative;
+  margin-right: 16px;
+}
+.selectCounty input {
+  background-color: #f3f3f3;
+  width: 175px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 16px;
+}
+.arrow {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  cursor: pointer;
+  color: #aeaeae;
+}
+.countyUl {
+  display: none;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  padding: 16px;
+  position: absolute;
+  z-index: 10;
+  width: 160px;
+  top: 52px;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  width: 145px;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  z-index: 10;
+  top: 52px;
+}
+.dropdown li,
+.searchPoint input::placeholder,
+.searchPoint input,
+.dropdownPoint li,
+.selectCounty input,
+.countyUl li {
+  color: #323232;
+  font-family: Noto Sans CJK TC;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.countyUl li {
+  cursor: pointer;
+}
+.dropdown li,
+.countyUl li {
+  margin-bottom: 16px;
+}
+
+.dropdown li:nth-last-of-type(1),
+.countyUl li:nth-last-of-type(1) {
+  margin: 0;
+}
+.searchPoint {
+  margin-left: 16px;
+  position: relative;
+}
+.searchPoint div {
+  position: relative;
+}
+.searchPoint input {
+  width: 277px;
+  height: 40px;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  border: none;
+  padding-left: 16px;
+}
+.searchPoint input::placeholder,
+.selectCounty input::placeholder {
+  color: #aeaeae;
+  padding-left: 8px;
+}
+.searchPoint input:focus,
+.selectCounty input:focus {
+  outline: none;
+}
+.magnifier {
+  position: absolute;
+  right: 24px;
+  top: 12px;
+  color: #aeaeae;
+  cursor: pointer;
+}
+
+.dropdownPoint {
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  padding: 16px;
+  position: absolute;
+  width: 263px;
+  z-index: 10;
+  top: 52px;
+}
+.dropdownPoint li {
+  margin-bottom: 16px;
+}
+.allCheckDiv,
+.checkDiv {
+  position: relative;
+  margin-bottom: 32px;
+}
+.checkDiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+.checkDiv div {
+  margin-bottom: 31px;
+  margin-right: 13px;
+  position: relative;
+  display: flex;
+}
+
+.checkInput,
+.allCheck {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkInput + .checkLabel,
+.allCheck + .checkLabel {
+  padding: 0;
+}
+/* 打勾的框框 */
+.checkLabel:before,
+.allCheck:before {
+  content: '';
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border: 1px solid #aeaeae;
+}
+
+/* 打勾後框框變色 */
+.checkInput:checked + .checkLabel:before,
+.allCheck:checked + .checkLabel:before {
+  background: #b5cc22;
+  border: 1px solid transparent;
+}
+
+/* 打勾後讓勾勾出現 */
+.checkInput:checked + .checkLabel:after,
+.allCheck:checked + .checkLabel:after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 9px;
+  background: white;
+  width: 2.5px;
+  height: 2.5px;
+  box-shadow: 2.5px 0 0 white, 5px 0 0 white, 5px -2.5px 0 white,
+    5px -5px 0 white, 5px -7.5px 0 white, 5px -10px 0 white;
+  transform: rotate(45deg);
+}
+main img {
+  width: 502px;
+  height: 171.5px;
+  margin-top: 100px;
+}
+/* -------------------------------------------------------------------------------- */
+
+/* 站點搜尋的表格CSS */
+.pointTable table {
+  border-collapse: separate;
+  border-spacing: 0;
+  /* border: 0.5px solid #aeaeae; */
+}
+
+.pointTable thead {
+  background-color: #b5cc22;
+}
+.pointTable thead td {
+  font-family: Noto Sans CJK TC;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  width: 128px;
+  padding: 21px 46px;
+  text-align: center;
+  border-top: 0.5px solid #aeaeae;
+}
+.pointTable thead td:nth-child(1) {
+  border-radius: 28px 0 0 0;
+  border-left: 0.5px solid #aeaeae;
+}
+.pointTable thead td:nth-last-child(1) {
+  border-radius: 0 28px 0 0;
+  border-right: 0.5px solid #aeaeae;
+}
+.pointTable thead td:nth-last-child(3) {
+  width: 336px;
+  text-align: center;
+}
+
+.pointTable tbody td {
+  text-align: center;
+  font-family: Noto Sans CJK TC;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #323232;
+  padding: 21px 46px;
+  border-bottom: 0.5px solid #aeaeae;
+}
+.pointTable tbody tr:nth-of-type(2n) {
+  background-color: #f6f6f6;
+}
+.pointTable tbody tr:nth-last-child(1) td:nth-child(1) {
+  border-radius: 0 0 0 28px;
+}
+.pointTable tbody tr:nth-last-child(1) td:nth-last-child(1) {
+  border-radius: 0 0 28px 0;
+}
+.pointTable tbody tr td:nth-child(1) {
+  border-left: 0.5px solid #aeaeae;
+}
+.pointTable tbody tr td:nth-last-child(1) {
+  border-right: 0.5px solid #aeaeae;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* RWD */
+/* RWD Header的CSS */
+@media (max-width: 375px) {
+  #root {
+    width: 375px;
+    margin: 0 auto;
+  }
+
+  /* RWD Header CSS */
+  header {
+    padding: 0 32px;
+  }
+
+  .navbarText,
+  .loginButton {
+    display: none;
+  }
+
+  .hamburger {
+    width: 18px;
+    height: 12px;
+  }
+
+  .cancel {
+    width: 14px;
+    height: 14px;
+  }
+
+  .hamburger,
+  .cancel {
+    display: block;
+    color: #b5cc22;
+    cursor: pointer;
+  }
+
+  .navbar img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .rwdFullNav {
+    width: 100%;
+    background-color: #b5cc22;
+    padding-top: 32px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .rwdFullNavText {
+    margin-left: 32px;
+    margin-bottom: 32px;
+    cursor: pointer;
+  }
+
+  .rwdFullNavText p {
+    font-family: Noto Sans CJK TC;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 18%;
+    color: #fff;
+  }
+
+  .rwdFullNavText p:hover {
+    color: #677510;
+  }
+
+  .rwdFullNavLogin {
+    display: block;
+    margin-left: 32px;
+  }
+
+  .rwdFullNavLogin button {
+    padding: 10px 24px;
+    color: #b5cc22;
+    font-family: Noto Sans CJK TC;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    background-color: #fff;
+    border-radius: 100px;
+    border: none;
+    margin-bottom: 31px;
+    cursor: pointer;
+  }
+  .rwdFullNav div:nth-last-child(2) {
+    margin-bottom: 244px;
+  }
+
+  /* RWD main CSS */
+  main {
+    padding: 24px 32px;
+  }
+  .searchArea {
+    display: block;
+  }
+  .searchArea img {
+    display: none;
+  }
+  .searchInput {
+    flex-direction: column-reverse;
+  }
+  .selectCounty input,
+  .searchPoint input {
+    width: 295px;
+  }
+  .searchPoint {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  .magnifier {
+    right: 16px;
+  }
+  .arrow {
+    right: 0;
+  }
+  .dropdownPoint {
+    padding: 10px 0 10px 16px;
+    width: 296px;
+    top: 48px;
+  }
+  .countyUl {
+    padding: 10px 0 10px 16px;
+    width: 296px;
+    top: 48px;
+  }
+  .checkDiv div {
+    margin-right: 24px;
+  }
+  .searchAreaFirstDiv {
+    width: 311px;
+  }
+  form {
+    width: 100%;
+  }
+  .checkResult {
+    width: 100%;
+  }
+  .pointTable thead td {
+    padding: 21px 11px;
+    font-size: 16px;
+  }
+  .pointTable thead td:nth-child(1) {
+    border-radius: 8px 0 0 0;
+  }
+  .pointTable thead td:nth-last-child(1),
+  .pointTable thead td:nth-last-child(2) {
+    display: none;
+  }
+  .pointTable thead td:nth-last-child(3) {
+    border-radius: 0 8px 0 0;
+    border-right: 0.5px solid #aeaeae;
+  }
+  .pointTable tbody td {
+    padding: 21px 11px;
+  }
+  .pointTable tbody td:nth-last-child(1),
+  .pointTable tbody td:nth-last-child(2) {
+    display: none;
+  }
+  .pointTable tbody tr td:nth-last-child(3) {
+    border-right: 0.5px solid #aeaeae;
+  }
+  .pointTable tbody tr:nth-last-child(1) td:nth-child(1) {
+    border-radius: 0 0 0 8px;
+  }
+  .pointTable tbody tr:nth-last-child(1) td:nth-last-child(3) {
+    border-radius: 0 0 8px 0;
+  }
+}
